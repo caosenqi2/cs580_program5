@@ -31,6 +31,16 @@ void insertVector(Vector * v, int index, Data value){
   v->data[index] = value;
 };
 
+Data * readVector(Vector * v, int index){
+  if(v->data[index].value == 0){        //question??
+    v->data[index].value = -1;
+  }
+  if (index < v->current_size)
+    return &(v->data[index]);
+  else
+    return NULL;
+};
+
 void removeVector(Vector * v, int index){
   if (index < v->current_size){
     v->current_size -= 1;
@@ -39,23 +49,13 @@ void removeVector(Vector * v, int index){
       if (i != index)
         new_array[j] = v->data[i];
       else
-        i++;
+        i++;           //question??
     }
     free(v->data);
     v->data = NULL;
     v->data = new_array;
     v->max_size = v->current_size;
   }
-};
-
-Data * readVector(Vector * v, int index){
-  if(v->data[index].value == 0){
-    v->data[index].value = -1;
-  }
-  if (index < v->current_size)
-    return &(v->data[index]);
-  else
-    return NULL;
 };
 
 void * deleteVector(Vector * v){
