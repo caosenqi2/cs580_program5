@@ -2,25 +2,33 @@
 #include <stdlib.h>
 #include "Data.h"
 #include "vector.h"
+#include "list.h"
 #include "stack.h"
 
 Stacklist * newStacklist(){
   Stacklist * stack = malloc(sizeof(Stacklist));
-  stack->data->head = NULL;
+  stack->data = newList();
+  printf("stack->data->head %d\n", stack->data->head );
+  /*stack->data->head = NULL;
   stack->data->tail = NULL;
   stack->data->size = 0;
   stack->data->insert = insertList;
   stack->data->read = readData;
   stack->data->remove = removeData;
   stack->data->delete = deleteList;
-  stack->push = pushStacklist;
+  stack->push = pushStacklist;*/
 };
 
 void pushStacklist(Stacklist * stack, Data value){
-  printf("begin to push");
+  printf("begin to push into list");
   stack->data->insert(stack->data, stack->data->size, value);
   stack->data->size += 1;
 };
+
+Data popStacklist(Stacklist * stack);
+Data peekStacklist(Stacklist * stack);
+void clearStacklist(Stacklist * stack);
+void * deleteStacklist(Stacklist * stack);
 
 Stackvector * newStackvector(){
   Stackvector * stack = malloc(sizeof(Stackvector));
@@ -38,7 +46,12 @@ Stackvector * newStackvector(){
 }
 
 void pushStackvector(Stackvector * stack, Data value){
-  printf("begin to insert");
+  printf("begin to push into vector");
 	stack->data->insert(stack->data, stack->stackCount, value);
 	stack->stackCount += 1;
 }
+
+Data popStackvector(Stackvector * stack);
+Data peekStackvector(Stackvector * stack);
+void clearStackvector(Stackvector * stack);
+void * deleteStackvector(Stackvector * stack);

@@ -14,13 +14,15 @@
 #define PRINTT { if(DEBUG) fprintf(stderr, "%s:%d|\n", __FILE__, __LINE__); }
 
 int main(){
-  printf("hello2");
+  printf("hello2\n");
   fprintf(stderr, "\n\t=========Test #15: Stack Create ===========\n\n");
+  printf("hello1\n");
   Stacklist * sl = newStacklist();
+  printf("stack->data->head %d\n", sl->data->head );
   assert(sl->data->head == NULL);
   
   //Stackvector * sv = newStackvector();
-  printf("hello");
+  printf("hello\n");
   //assert(sv->data->current_size == 0);
   fprintf(stderr, "\n\t\tTest #15 Passed...\n\n");
 }
