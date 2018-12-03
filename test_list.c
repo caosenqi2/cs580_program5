@@ -53,7 +53,7 @@ int main(){
     Data * d = list->read(list, index);
     assert(d->value == index +1);
   }
-  d = list->read(list, 20);
+  Data * d = list->read(list, 20);
   assert(d == NULL);
 
   printf("\n\t\tTest #13: Passed ...\n\n");
