@@ -3,7 +3,7 @@
 
 typedef struct Data{
   int value;
+  int initial;
 } Data;
-
 
 #endif

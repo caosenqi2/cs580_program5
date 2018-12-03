@@ -18,6 +18,7 @@ void insertVector(Vector * v, int index, Data value){
   if (index >= v->max_size){
     v->max_size = index * 2 + 1;
     Data * new_array = malloc(sizeof(Data) * v->max_size);
+    new_array->value = 333;
     memcpy(new_array, v->data, sizeof(Data) * v->current_size);
     free(v->data);
     v->data = NULL;
@@ -27,14 +28,16 @@ void insertVector(Vector * v, int index, Data value){
     v->current_size = index + 1;
   }
   v->data[index] = value;
+  v->data[index].initial = 1; // notice
 };
 
 Data * readVector(Vector * v, int index){
-  if(v->data[index].value == 0){        //question??
+  if(v->data[index].initial != 1){  //question??
     v->data[index].value = -1;
   }
-  if (index < v->current_size)
+  if (index < v->current_size){
     return &(v->data[index]);
+  }
   else
     return NULL;
 };

@@ -40,7 +40,10 @@ int main(){
   Data data_array[20];
   for(i = 0 ; i < 20 ; i++){
     data_array[i].value = (rand() % 20) + 1;
+    //data_array[i].value = i;
+    //printf("i:%d data:%d\n",i,data_array[i]);
     vect->insert(vect, i, data_array[i]);
+    printf("after insert index %d value %d\n", i, vect->data[i].value);
   }
   
   assert(vect->max_size == 31);
@@ -66,7 +69,6 @@ int main(){
   
   for(i = 0 ; i < 20 ; i++){
     Data * d = vect->read(vect, i);
-    fprintf(stderr, "%d %d\n",data_array[i].value, d->value );
     assert(data_array[i].value == d->value);
   }
   Data * d = vect->read(vect, 49);
@@ -77,7 +79,7 @@ int main(){
     fprintf(stderr, "%d %d\n",data_array[i].value, d->value );
     assert(data_array[i].value == d->value);
   }
-  Data * d = vect->read(vect, 49);
+  d = vect->read(vect, 49);
   assert(49 == d->value);
   printf("\n\t=========Test #6: Reading from unititialized vector index (should return -1)===========\n\n");
   
