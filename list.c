@@ -68,17 +68,12 @@ Data * readData(List * list, int index){
 
 void removeData(List * list, int index){
   if (index == 0){
-    printf("index is 0 size %d\n",list->size);
-    printf("index is 0 size %d\n",list->size);
-    
-    if (list->head->next == NULL){
-      printf("last node to remove");
+    if (list->head->next == NULL){ //note: last node to remove
       free(list->head);
       list->head = NULL;
       list->tail = NULL;
     }
     else{
-      printf("list head exist\n");
       list->head = list->head->next;
       free(list->head->prev);
       list->head->prev = NULL;
@@ -86,7 +81,6 @@ void removeData(List * list, int index){
     }
   }
   else if (index > 0 && index < list->size - 1){
-    printf("normal index size %d\n",list->size);
     Node * tmp = list->head;
     for (int i = 0; i < index; i++){
       tmp = tmp->next;
@@ -98,15 +92,10 @@ void removeData(List * list, int index){
     list->size -= 1;
   }
   else if (index == list->size-1){
-    printf("last index size %d\n",list->size);
     list->tail = list->tail->prev;
     free(list->tail->next);
     list->tail->next = NULL;
     list->size -= 1;
-  }
-  else if (index != 0 && index>list->size-1) {
-    printf("index %d, size %d\n",index, list->size);
-    printf("out of bound\n");
   }
 };
 
