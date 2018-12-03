@@ -36,6 +36,7 @@ int main(){
   assert(list->tail->next == NULL && list->tail->prev != NULL);
   Node * test = list->head;
   for(index = 0 ; index < 10 ; index++, test = test->next){
+    printf("test->data.value %d and index: %d \n",test->data.value, index);
     assert(test->data.value == index +1);
   }
   //***** Test that out of bounds indexes are appended to the list ****/
@@ -46,6 +47,7 @@ int main(){
   
   printf("\n\t=========Test #13: Linked List Read===========\n\n");
   for(index = 0 ; index < 10 ; index++){
+    printf("hello");
     Data * d = list->read(list, index);
     assert(d->value == index +1);
   }

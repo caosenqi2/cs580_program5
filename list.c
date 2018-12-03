@@ -12,7 +12,8 @@ Node * newNode(Data data, Node * next, Node * prev){
 List * newList(){
   List * l = malloc(sizeof(List));
   int size = 0;
-  l->head = l->tail = NULL;
+  l->head = NULL;
+  l->tail = NULL;
   l->insert = insertList;
   l->read = readData;
   l->remove = removeData;
@@ -22,12 +23,16 @@ List * newList(){
 
 void insertList(List * list, int index, Data value){
   if (list->head == NULL){
-    list->head = list->tail = newNode(value, NULL, NULL);
+    Node * p = newNode(value, NULL, NULL);
+    list->head = p;
+    list->tail = p;
     list->size += 1;
   }
-  if (index > list->size-1){
+  else if (index > list->size-1){         ///notice "else"
     Node * p = list->tail;
-    list->tail = p->next = newNode(value, NULL, p);
+    Node * tmp = newNode(value, NULL, p);
+    p->next = tmp;                       // notice update
+    list->tail = tmp;
     list->size += 1;
   }
   else {
@@ -49,6 +54,7 @@ Data * readData(List * list, int index){
     return NULL;
   Node * tmp = list->head;
   for (int i = 0; i < index; i++){
+    
     tmp = tmp->next;
   }
   return &(tmp->data); //question??
@@ -71,12 +77,12 @@ void removeData(List * list, int index){
     free(tmp);
     tmp = NULL;
     list->size -= 1;
+  }
   if (index == list->size-1){
     list->tail = list->tail->prev;
     free(list->tail->next);
     list->tail->next = NULL;
     list->size -= 1;
-  }
   }
   
 };
@@ -89,7 +95,9 @@ void *deleteList(List * list){
     tmp->prev = NULL;
   }
   free(tmp);
+  tmp = NULL;
   free(list);
+  list = NULL;
 };
 
 
