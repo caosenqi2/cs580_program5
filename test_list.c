@@ -36,30 +36,30 @@ int main(){
   assert(list->tail->next == NULL && list->tail->prev != NULL);
   Node * test = list->head;
   for(index = 0 ; index < 10 ; index++, test = test->next){
-    printf("test->data.value %d and index: %d \n",test->data.value, index);
+
     assert(test->data.value == index +1);
   }
   //***** Test that out of bounds indexes are appended to the list ****/
   list->insert(list , 20, (Data){11});
   assert(list->tail->data.value == 11);
-  printf("test12\n");
+
   fprintf(stderr, "\n\t\tTest #12: Passed ...\n\n");
-  printf("test12pass");
+
   
   printf("\n\t=========Test #13: Linked List Read===========\n\n");
-  printf("before");
+
   for(index = 0 ; index < 10 ; index++){
-    printf("index%d\n",index);
+
     Data * d = list->read(list, index);
     assert(d->value == index +1);
   }
-  Data * d = list->read(list, 20);
+  d = list->read(list, 20);
   assert(d == NULL);
-  printf("hi\n");
+
   printf("\n\t\tTest #13: Passed ...\n\n");
-  printf("\nhello\n");
+
   fprintf(stderr, "\n\t=========Test #14: Linked List Remove===========\n\n");
-  printf("hi2\n");
+
   for(index = 0; list->head != NULL; index++){
     index = index % 4;
     
