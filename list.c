@@ -75,6 +75,7 @@ void removeData(List * list, int index){
       printf("last node to remove");
       free(list->head);
       list->head = NULL;
+      list->tail = NULL;
     }
     else{
       printf("list head exist\n");
