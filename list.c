@@ -27,7 +27,6 @@ void insertList(List * list, int index, Data value){
     list->head = p;
     list->tail = p;
     list->size = list->size + 1;
-    printf("first size %d\n",list->size);
   }
   else if (index > list->size-1){         ///notice "else"
     Node * p = list->tail;
@@ -35,7 +34,6 @@ void insertList(List * list, int index, Data value){
     p->next = tmp;                       // notice update
     list->tail = tmp;
     list->size = list->size + 1;
-    printf("size %d\n",list->size);
   }
   else {
     Node * tmp = list->head;
@@ -53,7 +51,6 @@ void insertList(List * list, int index, Data value){
 
 Data * readData(List * list, int index){
   if (index > list->size - 1) {
-    printf("null");
     return NULL;
   }
     
