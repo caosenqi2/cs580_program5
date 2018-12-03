@@ -72,7 +72,13 @@ int main(){
   Data * d = vect->read(vect, 49);
   assert(49 == d->value);
   printf("\n\t=========Test #5 Passed...            ===========\n\n");
-  
+  for(i = 0 ; i < 20 ; i++){
+    Data * d = vect->read(vect, i);
+    fprintf(stderr, "%d %d\n",data_array[i].value, d->value );
+    assert(data_array[i].value == d->value);
+  }
+  Data * d = vect->read(vect, 49);
+  assert(49 == d->value);
   printf("\n\t=========Test #6: Reading from unititialized vector index (should return -1)===========\n\n");
   
   d = vect->read(vect, 45);
