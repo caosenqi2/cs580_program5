@@ -9,18 +9,50 @@ Stacklist * newStacklist(){
   Stacklist * stack = malloc(sizeof(Stacklist));
   stack->data = newList();
   stack->push = pushStacklist;
+  stack->pop = popStacklist;
+  stack->peek = peekStacklist;
+  stack->clear = clearStacklist;
+  stack->delete = deleteList;
   return stack; // remember this line
 };
 
 void pushStacklist(Stacklist * stack, Data value){
   stack->data->insert(stack->data, stack->data->size, value);
-  stack->data->size += 1;
 };
 
-Data popStacklist(Stacklist * stack);
-Data peekStacklist(Stacklist * stack);
-void clearStacklist(Stacklist * stack);
-void * deleteStacklist(Stacklist * stack);
+Data popStacklist(Stacklist * stack){
+  if (stack->data->size == 0){
+    Data data = {data.value = -1};
+    return data;
+  }
+  else {
+    Data to_push = *stack->data->read(stack->data, stack->data->size-1);
+    stack->data->remove(stack->data, stack->data->size-1);
+    return to_push;
+  }
+};
+
+Data peekStacklist(Stacklist * stack){
+  if (stack->data->size == 0){
+    Data data = {data.value = -1};
+    return data;
+  }else{
+    Data to_push = *stack->data->read(stack->data, stack->data->size-1);
+    return to_push;
+  }
+}
+ 
+
+void clearStacklist(Stacklist * stack){
+  stack->data->delete(stack->data);
+};
+
+void * deleteStacklist(Stacklist * stack){
+  free(stack);
+  stack = NULL;
+};
+
+
 
 Stackvector * newStackvector(){
   Stackvector * stack = malloc(sizeof(Stackvector));
@@ -38,4 +70,5 @@ void pushStackvector(Stackvector * stack, Data value){
 Data popStackvector(Stackvector * stack);
 Data peekStackvector(Stackvector * stack);
 void clearStackvector(Stackvector * stack);
-void * deleteStackvector(Stackvector * stack);
+void * deleteStackvector(Stackvector * stack){
+};

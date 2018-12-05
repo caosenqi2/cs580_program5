@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "list.h"
+#include <stdlib.h>
 
 Node * newNode(Data data, Node * next, Node * prev){
   Node * n = malloc(sizeof(Node));
@@ -69,6 +70,7 @@ void removeData(List * list, int index){
       free(list->head);
       list->head = NULL;
       list->tail = NULL;
+      list->size -= 1;
     }
     else{
       list->head = list->head->next;
