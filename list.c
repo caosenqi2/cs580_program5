@@ -98,11 +98,13 @@ void removeData(List * list, int index){
   }
 };
 
-void *deleteList(List * list){
+void deleteList(List * list){
+  
   Node * tmp = list->head;
   while(tmp != NULL && tmp->next != NULL){
     tmp = tmp->next;
     free(tmp->prev);
+    
     tmp->prev = NULL;
   }
   free(tmp);

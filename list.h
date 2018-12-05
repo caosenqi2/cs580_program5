@@ -25,6 +25,6 @@ List * newList();
 void insertList(List * list, int index, Data value);
 Data * readData(List * list, int index);
 void removeData(List * list, int index);
-void *deleteList(List * list);
+void deleteList(List * list);
 
 #endif

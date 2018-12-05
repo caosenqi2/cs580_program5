@@ -12,7 +12,7 @@ Stacklist * newStacklist(){
   stack->pop = popStacklist;
   stack->peek = peekStacklist;
   stack->clear = clearStacklist;
-  stack->delete = deleteList;
+  stack->delete = deleteStacklist;
   return stack; // remember this line
 };
 
