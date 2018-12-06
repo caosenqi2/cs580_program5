@@ -42,12 +42,14 @@ Data peekQueuelist(Queuelist * queue){
   }
   return d;
 }
+
 void clearQueuelist(Queuelist * queue){
   while(queue->data->size>0){
     queue->data->remove(queue->data,0);
   }
 };
 void * deleteQueuelist(Queuelist * queue){
+  queue->data->delete(queue->data);
   free(queue);
   queue = NULL;
 };
