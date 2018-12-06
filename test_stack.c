@@ -86,7 +86,7 @@ int main(){
     printf("i:%d  pushin value:%d  size: %d\n",i,sl->data->tail->data.value, sl->data->size);
   }
   sl->clear(sl);
-  //assert(sl->pop(sl).value == -1);
+  assert(sl->pop(sl).value == -1);
   /*for(int i = 0; i < 10; i++){
     sv->push(sv, (Data){.value=i});
   }

@@ -99,8 +99,11 @@ void removeData(List * list, int index){
 };
 
 void deleteList(List * list){
-  
-  Node * tmp = list->head;
+  while(list->size>0){
+    list->remove(list, list->size-1);
+    printf("size:%d\n",list->size);
+  }
+  /*Node * tmp = list->head;
   while(tmp != NULL && tmp->next != NULL){
     tmp = tmp->next;
     free(tmp->prev);
@@ -108,9 +111,9 @@ void deleteList(List * list){
     tmp->prev = NULL;
   }
   free(tmp);
-  tmp = NULL;
-  free(list);
-  list = NULL;
+  tmp = NULL;*/
+  //free(list);
+  //list = NULL;
 };
 
 

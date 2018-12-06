@@ -41,7 +41,7 @@ Data peekStacklist(Stacklist * stack){
     return to_push;
   }
 }
- 
+
 
 void clearStacklist(Stacklist * stack){
   stack->data->delete(stack->data);
@@ -52,23 +52,58 @@ void * deleteStacklist(Stacklist * stack){
   stack = NULL;
 };
 
-
-
 Stackvector * newStackvector(){
   Stackvector * stack = malloc(sizeof(Stackvector));
   stack->data = newVector();
   stack->stackCount = 0;
   stack->push = pushStackvector;
+  stack->pop=popStackvector;
+  stack->peek=peekStackvector;
+  stack->clear=clearStackvector;
+  stack->delete=deleteStackvector;
   return stack;
 }
 
 void pushStackvector(Stackvector * stack, Data value){
-	stack->data->insert(stack->data, stack->stackCount, value);
-	stack->stackCount += 1;
+  stack->data->insert(stack->data, stack->stackCount, value);
+  stack->stackCount += 1;
 }
 
-Data popStackvector(Stackvector * stack);
-Data peekStackvector(Stackvector * stack);
-void clearStackvector(Stackvector * stack);
+Data popStackvector(Stackvector * stack){
+  Data d;
+  if(stack->stackCount==0){
+    d.value=-1;
+  }
+  //Data *num=malloc(sizeof(Data));
+  //printf("abc\n");
+  else{
+    Data *num=stack->data->read(stack->data,stack->stackCount-1);
+    //printf("ac\n");
+    d=*num;
+    stack->data->remove(stack->data,stack->stackCount-1);
+    stack->stackCount-=1;
+    //printf("abc\n");
+  }
+  return d;
+}
+Data peekStackvector(Stackvector * stack){
+  //printf("abc\n");
+  Data *num=stack->data->read(stack->data,(stack->stackCount)-1);
+  Data d=*num;
+  //printf("c\n");
+  return d;
+}
+void clearStackvector(Stackvector * stack){
+  //printf("c\n");
+  for(int i=stack->stackCount;i>0;i--){
+    //printf("c\n");
+    stack->data->remove(stack->data,stack->stackCount-1);
+    stack->stackCount-=1;
+  }
+}
 void * deleteStackvector(Stackvector * stack){
-};
+  free(stack->data);
+  stack->data=NULL;
+  free(stack);
+  stack=NULL;
+}

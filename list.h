@@ -19,7 +19,6 @@ typedef struct List{
   void (*delete)(struct List * list);
 } List;
 
-
 Node * newNode(Data data, Node * next, Node * prev);
 List * newList();
 void insertList(List * list, int index, Data value);
