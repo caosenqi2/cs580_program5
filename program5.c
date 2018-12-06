@@ -261,6 +261,7 @@ int main(){
     fprintf(stderr, "\n\t=========Test #23: Queue Dequeue ===========\n\n");
     for(int i = 0; i < 10; i++){
         Data d = ql->dequeue(ql);
+        printf("value: %d  i: %d\n",d.value, i);
         assert(d.value == i);
     }
     for(int i = 0; i < 10; i++){
