@@ -313,7 +313,7 @@ int main(){
 
 	printf("\n\t========= Speed Tests ===========\n\n");
 
-	/*printf("Comparing Stacks and Queues used with Vector and Lists\n");
+	printf("Comparing Stacks and Queues used with Vector and Lists\n");
     sl = newStacklist();
     sv = newStackvector();
     ql = newQueuelist();
@@ -326,5 +326,5 @@ int main(){
     qv->delete(qv);
 	printf("\n\t========= Don't forget to submit your hash and check your code with Valgrind! ===========\n\n");
 
-	return 0;*/
+	return 0;
 }

@@ -103,6 +103,8 @@ void deleteList(List * list){
     list->remove(list, list->size-1);
     printf("size:%d\n",list->size);
   }
+  free(list);
+  list = NULL;
   /*Node * tmp = list->head;
   while(tmp != NULL && tmp->next != NULL){
     tmp = tmp->next;
