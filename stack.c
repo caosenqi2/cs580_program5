@@ -48,6 +48,7 @@ void clearStacklist(Stacklist * stack){
 };
 
 void * deleteStacklist(Stacklist * stack){
+  stack->data->delete(stack->data);
   free(stack);
   stack = NULL;
 };
