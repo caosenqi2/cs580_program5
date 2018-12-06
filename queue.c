@@ -28,8 +28,8 @@ Data dequeueQueuelist(Queuelist * queue){
   else{
     d = *queue->data->read(queue->data, 0);
     queue->data->remove(queue->data, 0);
-    return d;
   }
+  return d;
 };
 
 Data peekQueuelist(Queuelist * queue){
@@ -39,8 +39,8 @@ Data peekQueuelist(Queuelist * queue){
   }
   else{
     d = *queue->data->read(queue->data, 0);
-    return d;
-    }
+  }
+  return d;
 }
 void clearQueuelist(Queuelist * queue){
   while(queue->data->size>0){
