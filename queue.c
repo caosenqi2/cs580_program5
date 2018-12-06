@@ -21,14 +21,14 @@ void enqueueQueuelist(Queuelist * queue, Data value){
 };
 
 Data dequeueQueuelist(Queuelist * queue){
+  Data d;
   if(queue->data->size == 0){
-    Data data = {data.value = -1};
-    return data;
+    d.value = -1;
   }
   else{
-    Data * d = queue->data->read(queue->data, 0);
+    d = *queue->data->read(queue->data, 0);
     queue->data->remove(queue->data, 0);
-    return *d;
+    return d;
   }
 };
 
