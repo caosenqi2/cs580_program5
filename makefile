@@ -7,7 +7,7 @@ a: vector.o list.o stack.o queue.o program5.o profile.o
 	gcc $(FLAG) vector.o list.o stack.o queue.o profile.o program5.o -o a
 memcheck: 
 	valgrind ./a
-program5.o: program5.c queue.h vector.h list.h stack.h data.h
+program5.o: program5.c queue.h vector.h list.h stack.h
 	gcc $(FLAG) -c program5.c -o program5.o
 profile.o: profile.c queue.h vector.h list.h
 	gcc $(FLAG) -c profile.c -o profile.o	
