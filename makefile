@@ -15,9 +15,9 @@ queue.o: queue.c queue.h vector.h list.h data.h
 	gcc $(FLAG) -c queue.c -o queue.o
 stack.o: stack.c stack.h vector.h list.h data.h
 	gcc $(FLAG) -c stack.c -o stack.o	
-vector.o: vector.c vector.h data.h
+vector.o: vector.c vector.h
 	gcc $(FLAG) -c vector.c -o vector.o
-list.o: list.c list.h data.h
+list.o: list.c list.h
 	gcc $(FLAG) -c list.c -o list.o
 clean:
 	rm -rf *.o a
