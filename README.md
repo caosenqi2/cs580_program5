@@ -3,13 +3,13 @@
 ### PROGRAM 5 README FILE
 
 ## KNOWN BUGS AND INCOMPLETE PARTS:
-- What parts of the program you were not able to complete
+- None
 
 ## REFERENCES:
-- List any outside resources used
+- None
 
 ## MISCELLANEOUS COMMENTS:
-- Anything you would like the grader to know
+- None
 
 # Assignment Description
 ## Program 5 - Sequential Collections
