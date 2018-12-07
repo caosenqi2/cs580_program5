@@ -1,11 +1,11 @@
 FLAG= -g
-all: a
-run:a
-	./a
-a: vector.o list.o stack.o queue.o program5.o profile.o
-	gcc $(FLAG) vector.o list.o stack.o queue.o profile.o program5.o -o a
-memcheck: a
-	valgrind ./a
+all: program5
+run:program5
+	./program5
+program5: vector.o list.o stack.o queue.o program5.o profile.o
+	gcc $(FLAG) vector.o list.o stack.o queue.o profile.o program5.o -o program5
+memcheck: program5
+	valgrind ./program5
 program5.o: program5.c queue.h vector.h list.h stack.h
 	gcc $(FLAG) -c program5.c -o program5.o
 profile.o: profile.c queue.h vector.h list.h
@@ -19,4 +19,4 @@ vector.o: vector.c vector.h
 list.o: list.c list.h
 	gcc $(FLAG) -c list.c -o list.o
 clean:
-	rm -rf *.o a
+	rm -rf *.o program5
