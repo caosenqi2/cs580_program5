@@ -5,7 +5,7 @@ run:
 	./a
 a: vector.o list.o stack.o queue.o program5.o profile.o
 	gcc $(FLAG) vector.o list.o stack.o queue.o profile.o program5.o -o a
-memcheck: 
+memcheck: a
 	valgrind ./a
 program5.o: program5.c queue.h vector.h list.h stack.h
 	gcc $(FLAG) -c program5.c -o program5.o
