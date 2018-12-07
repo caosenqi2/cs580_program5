@@ -9,11 +9,11 @@ memcheck:
 	valgrind ./a
 program5.o: program5.c queue.h vector.h list.h stack.h data.h
 	gcc $(FLAG) -c program5.c -o program5.o
-profile.o: profile.c queue.h vector.h list.h data.h
+profile.o: profile.c queue.h vector.h list.h
 	gcc $(FLAG) -c profile.c -o profile.o	
-queue.o: queue.c queue.h vector.h list.h data.h
+queue.o: queue.c queue.h vector.h list.h
 	gcc $(FLAG) -c queue.c -o queue.o
-stack.o: stack.c stack.h vector.h list.h data.h
+stack.o: stack.c stack.h vector.h list.h
 	gcc $(FLAG) -c stack.c -o stack.o	
 vector.o: vector.c vector.h
 	gcc $(FLAG) -c vector.c -o vector.o
