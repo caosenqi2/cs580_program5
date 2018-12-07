@@ -44,11 +44,16 @@ Data peekStacklist(Stacklist * stack){
 
 
 void clearStacklist(Stacklist * stack){
-  stack->data->delete(stack->data);
+  //stack->data->delete(stack->data);
+  while(stack->data->size >0){
+    stack->data->remove(stack->data, stack->data->size-1);
+  }
 };
 
 void * deleteStacklist(Stacklist * stack){
+  printf("jjjd\n");
   stack->data->delete(stack->data);
+  printf("hello\n");
   free(stack);
   stack = NULL;
 };
