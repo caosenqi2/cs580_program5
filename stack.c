@@ -51,11 +51,13 @@ void clearStacklist(Stacklist * stack){
 };
 
 void * deleteStacklist(Stacklist * stack){
-  printf("jjjd\n");
-  stack->data->delete(stack->data);
-  printf("hello\n");
-  free(stack);
-  stack = NULL;
+  if(stack != NULL){
+    printf("jjjd\n");
+    stack->data->delete(stack->data);
+    printf("hello\n");
+    free(stack);
+    stack = NULL;
+  }
 };
 
 Stackvector * newStackvector(){

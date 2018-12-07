@@ -232,6 +232,7 @@ int main(){
     fprintf(stderr, "\n\t\tTest #19 Passed...\n\n");
 
     fprintf(stderr, "\n\t=========Test #20: Stack Delete ===========\n\n");
+    printf("sizeofsl%d\n",sl->data->size);
     sl->delete(sl);
     sv->delete(sv);
     fprintf(stderr, "\n\t\tTest #20 Passed (but check valgrind to be sure)...\n\n");
