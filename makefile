@@ -1,7 +1,6 @@
 FLAG= -g
 all: a
-run: 
-	gcc $(FLAG) vector.o list.o stack.o queue.o profile.o program5.o -o a
+run:a
 	./a
 a: vector.o list.o stack.o queue.o program5.o profile.o
 	gcc $(FLAG) vector.o list.o stack.o queue.o profile.o program5.o -o a
